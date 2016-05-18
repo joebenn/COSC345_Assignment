@@ -1,0 +1,43 @@
+body{
+    background-color: black
+}
+
+
+iframe#watchapp {
+  width: 200px;
+  height: 200px;
+  overflow:hidden;
+}
+
+#wrapper {
+  display: inline-block;
+  vertical-align:top;
+  position: relative;
+}
+
+#click-blocker {
+  width: 144px;
+  height: 168px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.button-group {
+  display: inline;
+  vertical-align:top;
+}
+
+
+#container {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+#background{
+  width: 200px;
+  height: 200px;
+  background-color: beige;
+    
+}
