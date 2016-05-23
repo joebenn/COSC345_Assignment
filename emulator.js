@@ -18,7 +18,7 @@ document.body.appendChild(canvas);
 
 
 
-
+//Handles navigation to the left
  function onClickleft() {
      clicks -= 1;
      if(clicks === -1){
@@ -29,7 +29,7 @@ document.body.appendChild(canvas);
 
  };
 
-
+//Handles navigation to the right
   function onClickright() {
       clicks += 1;
       if(clicks === 4){
@@ -41,6 +41,7 @@ document.body.appendChild(canvas);
 
   };
 
+
 function click_tracker() {
   if(clicks === 0 ){
     screen1();
@@ -48,7 +49,7 @@ function click_tracker() {
     screen2();
   }else if(clicks === 2){
     screen3();
-  }else if(clicks ===3){
+  }else if(clicks === 3){
     screen4();
   }
 }
