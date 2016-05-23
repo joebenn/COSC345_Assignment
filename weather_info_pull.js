@@ -18,7 +18,7 @@ function locationRequest() {
 // call to openweathermap api using lat and long
 function getWeather(latitude, longitude) {
 
-    $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude, function (jsonObj) {
+    jQuery.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude, function (jsonObj) {
         var jsonParsed = JSON.parse(jsonObj);
         var weather = jsonParsed.weather;
 
