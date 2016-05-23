@@ -24,7 +24,7 @@ document.body.appendChild(canvas);
      if(clicks === -1){
        clicks += 1;
      }
-     document.getElementById("clicks").innerHTML = clicks;
+     //document.getElementById("clicks").innerHTML = clicks;
      click_tracker()
 
  };
@@ -35,7 +35,7 @@ document.body.appendChild(canvas);
       if(clicks === 4){
         clicks -= 1;
       }
-      document.getElementById("clicks").innerHTML = clicks;
+      //document.getElementById("clicks").innerHTML = clicks;
       click_tracker()
 
 
