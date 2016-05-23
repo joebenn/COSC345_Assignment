@@ -1,6 +1,8 @@
 # COSC345_Assignment
 Repository for our COSC345 group.
 
-Reports are accessed in assignment.html and assignment2.html (internal links are provided between these pages).
+To run app in its current state do the following:
 
-index.html runs the emulator and the app in its current state.
+On a machine running python 2.7 open a terminal window and in the directory with these files enter the command: 'python -m SimpleHTTPServer 8000' and use the URL 'localhost:8000/index.html' in a web browser.
+
+From here links are included to both assignment 1 and 2 reports.
