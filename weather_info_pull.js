@@ -1,3 +1,5 @@
+var API_key = "8056edf51377902d28bd9e53a5dd97af";
+
 function success(pos) {
     var crd = pos.coords;
 
@@ -18,7 +20,7 @@ function locationRequest() {
 // call to openweathermap api using lat and long
 function getWeather(latitude, longitude) {
 
-    jQuery.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude, function (jsonObj) {
+    jQuery.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=' + API_key, function (jsonObj) {
         var jsonParsed = JSON.parse(jsonObj);
         var weather = jsonParsed.weather;
 
