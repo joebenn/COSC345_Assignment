@@ -1,0 +1,5 @@
+http://openweathermap.org/examples
+
+http://stackoverflow.com/questions/18918195/openweather-api-pulling-json-data-out
+
+http://stackoverflow.com/questions/34441645/how-to-pull-temperature-info-out-off-open-weather-map-api
