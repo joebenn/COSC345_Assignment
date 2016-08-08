@@ -15,14 +15,14 @@ var title = "Cloudy weather";
 var screen4_text_colour = "black";
 var screen4_title4 = "Cloudy weather info here";
 
-
+locationRequest();
 
 function screen1() {
   //This will eveutally house files which deal with displaying the pulled weather infomation
 
     canvas_create.fillStyle = background_colour_screen;
     canvas_create.fillRect(10,10,180,120);
-    
+
 
     canvas_create.fillStyle = screen1_text_colour;
 

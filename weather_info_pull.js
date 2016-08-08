@@ -2,7 +2,6 @@ var API_key = "8056edf51377902d28bd9e53a5dd97af";
 
 function success(pos) {
     var crd = pos.coords;
-
     getWeather(crd.latitude,crd.longitude);
 };
 
@@ -19,18 +18,19 @@ function locationRequest() {
 
 // call to openweathermap api using lat and long
 function getWeather(latitude, longitude) {
+    jQuery.getJSON('http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&APPID=' + API_key, function (jsonObj) {
 
-    jQuery.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=' + API_key, function (jsonObj) {
-        var jsonParsed = JSON.parse(jsonObj);
-        var weather = jsonParsed.weather;
+        var list = jsonObj.list;
+        for (i = 0; i < list.length; i++) {
+          console.log(list[i].weather[0].main);
+          console.log(list[i].weather[0].description);
+          console.log(list[i].dt_txt);
+          console.log(list[i].main.temp-273.15);
+          console.log("---------")
+}
 
-        currentWeather.conditionId = weather.id;
-        currentWeather.condition = weather.main;
-        currentWeather.description = weather.description;
 
-        console.log(weather.id);
-        console.log(weather.main);
-        console.log(weather.description);
+
 
 
 
