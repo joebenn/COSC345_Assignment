@@ -1,7 +1,7 @@
-var title = "Sunny weather";
+var title = "Clear weather";
 var background_colour_screen = "white";
 var screen1_text_colour = "black";
-var screen1_title1 = "Sunny weather info here";
+var screen1_title1 = "Clear weather info here";
 
 var title = "Rainy weather";
 var screen2_text_colour = "black";

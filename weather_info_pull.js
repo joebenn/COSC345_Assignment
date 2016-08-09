@@ -18,14 +18,15 @@ function locationRequest() {
 
 // call to openweathermap api using lat and long
 function getWeather(latitude, longitude) {
-    jQuery.getJSON('http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&APPID=' + API_key, function (jsonObj) {
+    jQuery.getJSON('http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude +
+                    "&units=metric" + '&APPID=' + API_key, function (jsonObj) {
 
         var list = jsonObj.list;
         for (i = 0; i < list.length; i++) {
           console.log(list[i].weather[0].main);
           console.log(list[i].weather[0].description);
           console.log(list[i].dt_txt);
-          console.log(list[i].main.temp-273.15);
+          console.log(list[i].main.temp);
           console.log("---------")
 }
 
