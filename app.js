@@ -1,3 +1,4 @@
+/*BC sucks ass*/
 var title = "Clear weather";
 var background_colour_screen = "white";
 var screen1_text_colour = "black";
