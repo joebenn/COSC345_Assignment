@@ -1,70 +1,37 @@
-/*BC sucks ass*/
-var title = "Clear weather";
-var background_colour_screen = "white";
-var screen1_text_colour = "black";
-var screen1_title1 = "Clear weather info here";
-
-var title = "Rainy weather";
-var screen2_text_colour = "black";
-var screen2_title2 = "Rainy weather info here";
-
-var title = "Snowy weather";
-var screen3_text_colour = "black";
-var screen3_title3 = "Snowy weather info here";
-
-var title = "Cloudy weather";
-var screen4_text_colour = "black";
-var screen4_title4 = "Cloudy weather info here";
-
 locationRequest();
 
-function screen1() {
-  //This will eveutally house files which deal with displaying the pulled weather infomation
-
-    canvas_create.fillStyle = background_colour_screen;
-    canvas_create.fillRect(10,10,180,120);
-
-
-    canvas_create.fillStyle = screen1_text_colour;
-
-    canvas_create.font = "15px Arial";
-    canvas_create.fillText(screen1_title1,10,50);
-
+for(i = 0; i < weatherData.length; i++){
+  console.log(weatherData[i]);
 }
 
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
 
-function screen2() {
-    canvas_create.fillStyle = background_colour_screen;
-    canvas_create.fillRect(10,10,180,120);
-
-    canvas_create.fillStyle = screen2_text_colour;
-
-    canvas_create.font = "15px Arial";
-    canvas_create.fillText(screen2_title2,10,50);
-
+if(dd<10) {
+    dd='0'+dd
 }
 
-function screen3() {
-    canvas_create.fillStyle = background_colour_screen;
-    canvas_create.fillRect(10,10,180,120);
-
-    canvas_create.fillStyle = screen3_text_colour;
-
-    canvas_create.font = "15px Arial";
-    canvas_create.fillText(screen3_title3,10,50);
-
+if(mm<10) {
+    mm='0'+mm
 }
 
-function screen4() {
-    canvas_create.fillStyle = background_colour_screen;
-    canvas_create.fillRect(10,10,180,120);
+today = dd+'/'+mm+'/'+yyyy;
+console.log(today);
 
-    canvas_create.fillStyle = screen4_text_colour;
+function clear_screen(c) {}
+function rainy_screen(c) {}
+function snowy_screen(c) {}
+function cloudy_screen(c) {}
 
-    canvas_create.font = "15px Arial";
-    canvas_create.fillText(screen4_title4,10,50);
-
-}
-
-
-screen1();
+set_screens([
+    {left: -1, right: 1, bg: "white", fg: "black", title: "Clear weather",
+     draw: clear_screen},
+    {left: 0, right: 2, bg: "white", fg: "black", title: "Rainy weather",
+      draw: rainy_screen},
+    {left: 1, right: 3, bg: "white", fg: "black", title: "Snowy weather",
+       draw: snowy_screen},
+    {left: 2, right: -1, bg: "white", fg: "black", title: "Cloudy weather",
+        draw: cloudy_screen},
+   ]);
