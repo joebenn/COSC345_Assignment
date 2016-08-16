@@ -8,16 +8,18 @@ var today = new Date();
 var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!
 var yyyy = today.getFullYear();
+var hr = today.getHours();
+var min = today.getMinutes();
+var sec = today.getSeconds();
 
-if(dd<10) {
-    dd='0'+dd
-}
+if(hr<10) hr='0'+hr;
+if(min<10) min='0'+min;
+if(sec<10) hr='0'+sec;
 
-if(mm<10) {
-    mm='0'+mm
-}
+if(dd<10) dd='0' + dd;
+if(mm<10) mm='0'+ mm;
 
-today = dd+'/'+mm+'/'+yyyy;
+today = dd+'/'+mm+'/'+yyyy+" "+hr+":"+min+":"+sec;
 console.log(today);
 
 function clear_screen(c) {}
