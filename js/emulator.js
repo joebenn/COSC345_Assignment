@@ -20,7 +20,7 @@ function set_current(screen_object) {
   canvas_create.fillStyle = current.bg;
   canvas_create.fillRect(10, 10, 180, 120);
   canvas_create.fillStyle = current.fg;
-  canvas_create.font = "15px Arial";
+  canvas_create.font = "15px sans-serif";
   canvas_create.fillText(current.title, 55, 20);
   //images?
   current.draw(canvas_create);

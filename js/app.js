@@ -121,9 +121,9 @@ function welcomeScreen(canvas) {
 }
 
 set_screens([
-    {left: -1, right: 1, bg: colour.WHITE, fg: colour.BLACK, draw: welcomeScreen},
-    {left: 0, right: 2, bg: colour.WHITE, fg: colour.BLACK, draw: clearWeatherScreen},
-    {left: 1, right: 3, bg: colour.WHITE, fg: colour.BLACK, draw: rainyWeatherScreen},
-    {left: 2, right: 4, bg: colour.WHITE, fg: colour.BLACK, draw: cloudyWeatherScreen},
-    {left: 3, right: -1, bg: colour.WHITE, fg: colour.BLACK, draw: snowyWeatherScreen}
+    {left: -1, right: 1, bg: colour.WHITE, fg: colour.WHITE, draw: welcomeScreen},
+    {left: 0, right: 2, bg: colour.WHITE, fg: colour.WHITE, draw: clearWeatherScreen},
+    {left: 1, right: 3, bg: colour.WHITE, fg: colour.WHITE, draw: rainyWeatherScreen},
+    {left: 2, right: 4, bg: colour.WHITE, fg: colour.WHITE, draw: cloudyWeatherScreen},
+    {left: 3, right: -1, bg: colour.WHITE, fg: colour.WHITE, draw: snowyWeatherScreen}
 ]);
