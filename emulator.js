@@ -1,6 +1,5 @@
 var width = 200;
 var height = 200;
-var clicks = 0;
 
 var canvas_width_pixels = width;
 var canvas_height_pixels = height;
@@ -22,7 +21,7 @@ function set_current(screen_object) {
   canvas_create.fillRect(10, 10, 180, 120);
   canvas_create.fillStyle = current.fg;
   canvas_create.font = "15px Arial";
-  canvas_create.fillText(current.title, 10, 50);
+  canvas_create.fillText(current.title, 55, 20);
   //images?
   current.draw(canvas_create);
 }

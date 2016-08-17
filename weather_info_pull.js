@@ -25,7 +25,6 @@ function getWeather(latitude, longitude) {
         var list = jsonObj.list;
         var city = jsonObj.city;
         for (i = 0; i < list.length; i++){
-          //find low and high for each day
           var date = new Date(list[i].dt*1000);
           var day = date.getDate();
           var month = date.getMonth() + 1;
@@ -36,10 +35,10 @@ function getWeather(latitude, longitude) {
           var formattedTime = day + "/" + month + "/" + year + " "+ hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
             weatherData.push({main: list[i].weather[0].main, description: list[i].weather[0].description,
-                              date_time: formattedTime, temp: list[i].main.temp, city: city.name});
-                              console.log(weatherData[i]);
-
+                              date_time: date, temp: list[i].main.temp, city: city.name});
          }
-
+         parseWeatherRain(weatherData);
     });
+
+
 }
