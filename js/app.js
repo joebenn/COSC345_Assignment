@@ -38,8 +38,8 @@ function calcTimeDifference(inputTime) {
     );
 
     return time.DAYS + ": " +
-        Math.floor((utcInputTime - utcToday) / minutesIn24Hours) + time.HOURS +
-        ": " + Math.abs(inputTime.getHours() - today.getHours());
+        Math.floor((utcInputTime - utcToday) / minutesIn24Hours) + " " +
+        time.HOURS + ": " + Math.abs(inputTime.getHours() - today.getHours());
 }
 
 function clearWeatherScreen(canvas) {
@@ -48,12 +48,15 @@ function clearWeatherScreen(canvas) {
     imageObj.onload = function () {
         canvas.drawImage(imageObj, 0, 0);
         canvas.fillText(weatherTitle.CLEAR, 55, 20);
+        var iconImg = new Image();
+        iconImg.src = iconImagePath.CLEAR_ICON_IMAGE;
+        canvas.drawImage(iconImg, 120, 120);
         if (clearWeather) {
-            canvas.fillText(clearWeather.description, 60, 60);
-            canvas.fillText(clearWeather.timeUntil, 60, 100);
-            canvas.fillText(clearWeather.temp, 60, 140);
+            canvas.fillText(labels.WHAT + clearWeather.description, 20, 60);
+            canvas.fillText(labels.WHEN + clearWeather.timeUntil, 20, 100);
+            canvas.fillText(labels.CELCIUS + clearWeather.temp, 20, 140);
         } else {
-            canvas.fillText(notForecastMessage.CLEAR, 60, 60);
+            canvas.fillText(notForecastMessage.CLEAR, 20, 100);
         }
     };
     imageObj.src = imagePath.CLEAR_SKY_BACKGROUND_IMAGE;
@@ -65,12 +68,15 @@ function rainyWeatherScreen(canvas) {
     imageObj.onload = function () {
         canvas.drawImage(imageObj, 0, 0);
         canvas.fillText(weatherTitle.RAIN, 55, 20);
+        var iconImg = new Image();
+        iconImg.src = iconImagePath.RAIN_ICON_IMAGE;
+        canvas.drawImage(iconImg, 120, 120);
         if (rainWeather) {
-            canvas.fillText(rainWeather.description, 60, 60);
-            canvas.fillText(rainWeather.timeUntil, 60, 100);
-            canvas.fillText(rainWeather.temp, 60, 140);
+            canvas.fillText(labels.WHAT + rainWeather.description, 20, 60);
+            canvas.fillText(labels.WHEN + rainWeather.timeUntil, 20, 100);
+            canvas.fillText(labels.CELCIUS + rainWeather.temp, 20, 140);
         } else {
-            canvas.fillText(notForecastMessage.RAIN, 60, 60);
+            canvas.fillText(notForecastMessage.RAIN, 40, 100);
         }
     };
     imageObj.src = imagePath.RAIN_SKY_BACKGROUND_IMAGE;
@@ -82,12 +88,15 @@ function cloudyWeatherScreen(canvas) {
     imageObj.onload = function () {
         canvas.drawImage(imageObj, 0, 0);
         canvas.fillText(weatherTitle.CLOUD, 55, 20);
+        var iconImg = new Image();
+        iconImg.src = iconImagePath.CLOUD_ICON_IMAGE;
+        canvas.drawImage(iconImg, 120, 120);
         if (cloudWeather) {
-            canvas.fillText(cloudWeather.description, 60, 60);
-            canvas.fillText(cloudWeather.timeUntil, 60, 100);
-            canvas.fillText(cloudWeather.temp, 60, 140);
+            canvas.fillText(labels.WHAT + cloudWeather.description, 20, 60);
+            canvas.fillText(labels.WHEN + cloudWeather.timeUntil, 20, 100);
+            canvas.fillText(labels.CELCIUS + cloudWeather.temp, 20, 140);
         } else {
-            canvas.fillText(notForecastMessage.CLOUD, 60, 60);
+            canvas.fillText(notForecastMessage.CLOUD, 40, 100);
         }
     };
     imageObj.src = imagePath.CLOUD_SKY_BACKGROUND_IMAGE;
@@ -99,12 +108,15 @@ function snowyWeatherScreen(canvas) {
     imageObj.onload = function () {
         canvas.drawImage(imageObj, 0, 0);
         canvas.fillText(weatherTitle.SNOW, 55, 20);
-        if (cloudWeather) {
-            canvas.fillText(cloudWeather.description, 60, 60);
-            canvas.fillText(cloudWeather.timeUntil, 60, 100);
-            canvas.fillText(cloudWeather.temp, 60, 140);
+        var iconImg = new Image();
+        iconImg.src = iconImagePath.SNOW_ICON_IMAGE;
+        canvas.drawImage(iconImg, 120, 120);
+        if (snowWeather) {
+            canvas.fillText(labels.WHAT + snowWeather.description, 20, 60);
+            canvas.fillText(labes.WHY + snowWeather.timeUntil, 20, 100);
+            canvas.fillText(labels.CELCIUS + snowWeather.temp, 20, 140);
         } else {
-            canvas.fillText(notForecastMessage.SNOW, 60, 60);
+            canvas.fillText(notForecastMessage.SNOW, 40, 100);
         }
     };
     imageObj.src = imagePath.SNOW_SKY_BACKGROUND_IMAGE;
@@ -115,15 +127,20 @@ function welcomeScreen(canvas) {
     var imageObj = new Image();
     imageObj.onload = function () {
         canvas.drawImage(imageObj, 0, 0);
-        canvas.fillText(TITLE, 55, 20);
+        canvas.fillText(TITLE, 60, 80);
+        canvas.fillText(TITLE2, 48, 100);
+        var iconImg = new Image();
+        iconImg.src = iconImagePath.WELCOME_ICON_IMAGE;
+        canvas.drawImage(iconImg, 5, 150);
     };
+
     imageObj.src = imagePath.WELCOME_BACKGROUND_IMAGE;
 }
 
 set_screens([
-    {left: -1, right: 1, bg: colour.WHITE, fg: colour.WHITE, draw: welcomeScreen},
+    {left: 3, right: 1, bg: colour.WHITE, fg: colour.WHITE, draw: welcomeScreen},
     {left: 0, right: 2, bg: colour.WHITE, fg: colour.WHITE, draw: clearWeatherScreen},
     {left: 1, right: 3, bg: colour.WHITE, fg: colour.WHITE, draw: rainyWeatherScreen},
     {left: 2, right: 4, bg: colour.WHITE, fg: colour.WHITE, draw: cloudyWeatherScreen},
-    {left: 3, right: -1, bg: colour.WHITE, fg: colour.WHITE, draw: snowyWeatherScreen}
+    {left: 3, right: 0, bg: colour.WHITE, fg: colour.WHITE, draw: snowyWeatherScreen}
 ]);

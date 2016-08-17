@@ -1,15 +1,16 @@
 body {
-	background-color: black;
+	background-color: white;
+	font-family: sans-serif;
 
 }
 
 h1 {
 	text-align: center;
-	color: white;
+	color: black;
 }
 
 p{
-	color: white;
+	color: black;
 	float: right;
 }
 
@@ -20,6 +21,9 @@ canvas {
 	margin-right: auto;
 	display: block;
 	background-color: white;
+	border: 10px solid;
+	border-color: #262626;
+	border-radius: 15px;
 
 }
 
@@ -31,18 +35,30 @@ figure {
 
 #buttonleft{
     float:left;
-    position: relative;;
+    position: relative;
+		background-color: #008CBA;
+		border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+
 
 }
 
 #buttonright{
 		margin-top: -140px;
     float: right;
-    position: relative;;
+    position: relative;
+		background-color: #008CBA;
+		border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+
 
 
 }
 
 a {
-    color: white;
+    color: red;
 }
