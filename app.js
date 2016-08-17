@@ -49,19 +49,26 @@ function calcTimeDifference(timeThen){
 }
 function clear_screen(c) {
     c.clearRect(0,0,200,200);
+    var imageObj = new Image();
+    imageObj.onload = function(){
+    c.drawImage(imageObj, 0, 0);
     c.fillText("Clear Weather", 55, 20);
-  //find next clear time
-  if(clear_data.length != 0){
-    c.fillText(clear_data[0].description, 60, 60);
-    c.fillText(clear_data[0].timeUntil, 60, 100);
-    c.fillText(clear_data[0].temp, 60, 140);
-  } else {
-    c.fillText("It will not be clear soon", 60, 60);
-  }
+    if(clear_data.length != 0){
+      c.fillText(clear_data[0].description, 60, 60);
+      c.fillText(clear_data[0].timeUntil, 60, 100);
+      c.fillText(clear_data[0].temp, 60, 140);
+    } else {
+      c.fillText("It will not be clear soon", 60, 60);
+    }
+      };
+      imageObj.src = 'images/blue-sky.jpg';
 }
 function rainy_screen(c) {
   c.clearRect(0,0,200,200);
-  c.fillText("Rainy Weather", 55, 20);
+  var imageObj = new Image();
+  imageObj.onload = function(){
+  c.drawImage(imageObj, 0, 0);
+  c.fillText("Rain Forcast", 55, 20);
   if(rain_data.length != 0){
     c.fillText(rain_data[0].description, 60, 60);
     c.fillText(rain_data[0].timeUntil, 60, 100);
@@ -69,21 +76,31 @@ function rainy_screen(c) {
   } else {
     c.fillText("It will not rain soon", 60, 60);
   }
+    };
+    imageObj.src = 'images/rain-sky.jpg';
 }
 function snowy_screen(c) {
   c.clearRect(0,0,200,200);
-  c.fillText("Snowy Weather", 55, 20);
+  var imageObj = new Image();
+  imageObj.onload = function(){
+  c.drawImage(imageObj, 0, 0);
+  c.fillText("Snow Forcast", 55, 20);
   if(snow_data.length != 0){
     c.fillText(snow_data[0].description, 60, 60);
     c.fillText(snow_data[0].timeUntil, 60, 100);
     c.fillText(snow_data[0].temp, 60, 140);
   } else {
-    c.fillText("It will not be snowy soon", 60, 60);
+    c.fillText("It will not snow soon", 60, 60);
   }
+    };
+    imageObj.src = 'images/snow-sky.jpg';
 }
 function cloudy_screen(c) {
   c.clearRect(0,0,200,200);
-  c.fillText("Cloudy Weather", 55, 20);
+  var imageObj = new Image();
+  imageObj.onload = function(){
+  c.drawImage(imageObj, 0, 0);
+  c.fillText("Cloud Forcast", 55, 20);
   if(cloud_data.length != 0){
     c.fillText(cloud_data[0].description, 60, 60);
     c.fillText(cloud_data[0].timeUntil, 60, 100);
@@ -91,16 +108,25 @@ function cloudy_screen(c) {
   } else {
     c.fillText("It will not be cloudy soon", 60, 60);
   }
+    };
+    imageObj.src = 'images/cloud-sky.jpg';
 }
 function welcome_screen(c){
   c.clearRect(0,0,200,200);
+  var imageObj = new Image();
+  imageObj.onload = function(){
+  c.drawImage(imageObj, 0, 0);
   c.fillText("WELCOME", 55, 20);
+  c.fillText("SHITTY FORCAST APP", 20, 130);
+    };
+    imageObj.src = 'images/welcome.jpg';
+
 }
 
 set_screens([
-    {left: -1, right: 1, bg: "white", fg: "black", draw: welcome_screen},
-    {left: 0, right: 2, bg: "white", fg: "black", draw: clear_screen},
-    {left: 1, right: 3, bg: "white", fg: "black", draw: rainy_screen},
-    {left: 2, right: 4, bg: "white", fg: "black", draw: cloudy_screen},
-    {left: 3, right: -1, bg: "white", fg: "black", draw: snowy_screen},
+    {left: -1, right: 1, bg: "white", fg: "white", draw: welcome_screen},
+    {left: 0, right: 2, bg: "white", fg: "white", draw: clear_screen},
+    {left: 1, right: 3, bg: "white", fg: "white", draw: rainy_screen},
+    {left: 2, right: 4, bg: "white", fg: "white", draw: cloudy_screen},
+    {left: 3, right: -1, bg: "white", fg: "white", draw: snowy_screen},
    ]);
