@@ -37,7 +37,7 @@ function getWeather(latitude, longitude) {
             weatherData.push({main: list[i].weather[0].main, description: list[i].weather[0].description,
                               date_time: date, temp: list[i].main.temp, city: city.name});
          }
-         parseWeatherRain(weatherData);
+         parseWeather(weatherData);
     });
 
 
