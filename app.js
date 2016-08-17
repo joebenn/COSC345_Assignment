@@ -13,27 +13,27 @@ function parseWeather(weatherData){
   for(var i = 0; i < weatherData.length; i++){
     if(weatherData[i].main === "Clear" && count_c === 0){
       var time = weatherData[i].date_time;
-      clear_data.push({description: weatherData[i].description, timeUntil: calcTimeDifference(time)});
+      clear_data.push({description: weatherData[i].description, timeUntil: calcTimeDifference(time),
+                        temp: weatherData[i].temp});
       count_c++
     } else if(weatherData[i].main === "Rain" && count_cd === 0){
       var time = weatherData[i].date_time;
-      rain_data.push({description: weatherData[i].description, timeUntil: calcTimeDifference(time)});
+      rain_data.push({description: weatherData[i].description, timeUntil: calcTimeDifference(time),
+                        temp: weatherData[i].temp});
       count_cd++
     } else if(weatherData[i].main === "Clouds" && count_r === 0){
       var time = weatherData[i].date_time;
-      cloud_data.push({description: weatherData[i].description, timeUntil: calcTimeDifference(time)});
+      cloud_data.push({description: weatherData[i].description, timeUntil: calcTimeDifference(time),
+                        temp: weatherData[i].temp});
       count_r++
     } else if(weatherData[i].main === "Snow" && count_s === 0){
       var time = weatherData[i].date_time;
-      snow_data.push({description: weatherData[i].description, timeUntil: calcTimeDifference(time)});
+      snow_data.push({description: weatherData[i].description, timeUntil: calcTimeDifference(time),
+                        temp: weatherData[i].temp});
       count_s++
     }
   }
 }
-
-console.log(snow_data.length);
-
-
 
 function calcTimeDifference(timeThen){
   var today = new Date();
@@ -47,10 +47,6 @@ function calcTimeDifference(timeThen){
   var timeTillW_H = Math.abs(utc4 - utc3);
   return "days: " + timeTillW_D+ " " + "hours: " + timeTillW_H;
 }
-
-
-
-
 function clear_screen(c) {
     c.clearRect(0,0,200,200);
     c.fillText("Clear Weather", 55, 20);
@@ -58,11 +54,10 @@ function clear_screen(c) {
   if(clear_data.length != 0){
     c.fillText(clear_data[0].description, 60, 60);
     c.fillText(clear_data[0].timeUntil, 60, 100);
+    c.fillText(clear_data[0].temp, 60, 140);
   } else {
     c.fillText("It will not be clear soon", 60, 60);
   }
-
-
 }
 function rainy_screen(c) {
   c.clearRect(0,0,200,200);
@@ -70,6 +65,7 @@ function rainy_screen(c) {
   if(rain_data.length != 0){
     c.fillText(rain_data[0].description, 60, 60);
     c.fillText(rain_data[0].timeUntil, 60, 100);
+    c.fillText(rain_data[0].temp, 60, 140);
   } else {
     c.fillText("It will not rain soon", 60, 60);
   }
@@ -80,6 +76,7 @@ function snowy_screen(c) {
   if(snow_data.length != 0){
     c.fillText(snow_data[0].description, 60, 60);
     c.fillText(snow_data[0].timeUntil, 60, 100);
+    c.fillText(snow_data[0].temp, 60, 140);
   } else {
     c.fillText("It will not be snowy soon", 60, 60);
   }
@@ -90,6 +87,7 @@ function cloudy_screen(c) {
   if(cloud_data.length != 0){
     c.fillText(cloud_data[0].description, 60, 60);
     c.fillText(cloud_data[0].timeUntil, 60, 100);
+    c.fillText(cloud_data[0].temp, 60, 140);
   } else {
     c.fillText("It will not be cloudy soon", 60, 60);
   }
@@ -103,6 +101,6 @@ set_screens([
     {left: -1, right: 1, bg: "white", fg: "black", draw: welcome_screen},
     {left: 0, right: 2, bg: "white", fg: "black", draw: clear_screen},
     {left: 1, right: 3, bg: "white", fg: "black", draw: rainy_screen},
-    {left: 2, right: 4, bg: "white", fg: "black", draw: snowy_screen},
-    {left: 3, right: -1, bg: "white", fg: "black", draw: cloudy_screen},
+    {left: 2, right: 4, bg: "white", fg: "black", draw: cloudy_screen},
+    {left: 3, right: -1, bg: "white", fg: "black", draw: snowy_screen},
    ]);
