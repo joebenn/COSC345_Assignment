@@ -44,59 +44,80 @@ function calcTimeDifference(inputTime) {
 
 function clearWeatherScreen(canvas) {
     canvas.clearRect(0, 0, 200, 200);
-    canvas.fillText(weatherTitle.CLEAR, 55, 20);
-    if (clearWeather) {
-        canvas.fillText(clearWeather.description, 60, 60);
-        canvas.fillText(clearWeather.timeUntil, 60, 100);
-        canvas.fillText(clearWeather.temp, 60, 140);
-    } else {
-        canvas.fillText(notForecastMessage.CLEAR, 60, 60);
-    }
+    var imageObj = new Image();
+    imageObj.onload = function () {
+        canvas.drawImage(imageObj, 0, 0);
+        canvas.fillText(weatherTitle.CLEAR, 55, 20);
+        if (clearWeather) {
+            canvas.fillText(clearWeather.description, 60, 60);
+            canvas.fillText(clearWeather.timeUntil, 60, 100);
+            canvas.fillText(clearWeather.temp, 60, 140);
+        } else {
+            canvas.fillText(notForecastMessage.CLEAR, 60, 60);
+        }
+    };
+    imageObj.src = imagePath.CLEAR_SKY_BACKGROUND_IMAGE;
 }
 
 function rainyWeatherScreen(canvas) {
     canvas.clearRect(0, 0, 200, 200);
-    canvas.fillText(weatherTitle.RAIN, 55, 20);
-    if (rainWeather) {
-        canvas.fillText(rainWeather.description, 60, 60);
-        canvas.fillText(rainWeather.timeUntil, 60, 100);
-        canvas.fillText(rainWeather.temp, 60, 140);
-    } else {
-        canvas.fillText(notForecastMessage.RAIN, 60, 60);
-    }
+    var imageObj = new Image();
+    imageObj.onload = function () {
+        canvas.drawImage(imageObj, 0, 0);
+        canvas.fillText(weatherTitle.RAIN, 55, 20);
+        if (rainWeather) {
+            canvas.fillText(rainWeather.description, 60, 60);
+            canvas.fillText(rainWeather.timeUntil, 60, 100);
+            canvas.fillText(rainWeather.temp, 60, 140);
+        } else {
+            canvas.fillText(notForecastMessage.RAIN, 60, 60);
+        }
+    };
+    imageObj.src = imagePath.RAIN_SKY_BACKGROUND_IMAGE;
 }
 
 function cloudyWeatherScreen(canvas) {
     canvas.clearRect(0, 0, 200, 200);
-    canvas.fillText(weatherTitle.CLOUD, 55, 20);
-    if (cloudWeather) {
-        canvas.fillText(cloudWeather.description, 60, 60);
-        canvas.fillText(cloudWeather.timeUntil, 60, 100);
-        canvas.fillText(cloudWeather.temp, 60, 140);
-    } else {
-        canvas.fillText(notForecastMessage.CLOUD, 60, 60);
-    }
+    var imageObj = new Image();
+    imageObj.onload = function () {
+        canvas.drawImage(imageObj, 0, 0);
+        canvas.fillText(weatherTitle.CLOUD, 55, 20);
+        if (cloudWeather) {
+            canvas.fillText(cloudWeather.description, 60, 60);
+            canvas.fillText(cloudWeather.timeUntil, 60, 100);
+            canvas.fillText(cloudWeather.temp, 60, 140);
+        } else {
+            canvas.fillText(notForecastMessage.CLOUD, 60, 60);
+        }
+    };
+    imageObj.src = imagePath.CLOUD_SKY_BACKGROUND_IMAGE;
 }
 
 function snowyWeatherScreen(canvas) {
     canvas.clearRect(0, 0, 200, 200);
     var imageObj = new Image();
-    imageObj.onload = function(){
+    imageObj.onload = function () {
         canvas.drawImage(imageObj, 0, 0);
         canvas.fillText(weatherTitle.SNOW, 55, 20);
-        if(clear_data.length != 0){
-            canvas.fillText(clear_data[0].description, 60, 60);
-            canvas.fillText(clear_data[0].timeUntil, 60, 100);
-            canvas.fillText(clear_data[0].temp, 60, 140);
+        if (cloudWeather) {
+            canvas.fillText(cloudWeather.description, 60, 60);
+            canvas.fillText(cloudWeather.timeUntil, 60, 100);
+            canvas.fillText(cloudWeather.temp, 60, 140);
         } else {
             canvas.fillText(notForecastMessage.SNOW, 60, 60);
         }
     };
-    imageObj.src = 'images/blue-sky.jpg';
+    imageObj.src = imagePath.SNOW_SKY_BACKGROUND_IMAGE;
 }
-function welcomeScreen(c) {
-    c.clearRect(0, 0, 200, 200);
-    c.fillText(TITLE, 55, 20);
+
+function welcomeScreen(canvas) {
+    canvas.clearRect(0, 0, 200, 200);
+    var imageObj = new Image();
+    imageObj.onload = function () {
+        canvas.drawImage(imageObj, 0, 0);
+        canvas.fillText(TITLE, 55, 20);
+    };
+    imageObj.src = imagePath.WELCOME_BACKGROUND_IMAGE;
 }
 
 set_screens([
