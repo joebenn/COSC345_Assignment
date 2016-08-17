@@ -80,14 +80,19 @@ function cloudyWeatherScreen(canvas) {
 
 function snowyWeatherScreen(canvas) {
     canvas.clearRect(0, 0, 200, 200);
-    canvas.fillText(weatherTitle.SNOW, 55, 20);
-    if (snowWeather) {
-        canvas.fillText(snowWeather.description, 60, 60);
-        canvas.fillText(snowWeather.timeUntil, 60, 100);
-        canvas.fillText(snowWeather.temp, 60, 140);
-    } else {
-        canvas.fillText(notForecastMessage.SNOW, 60, 60);
-    }
+    var imageObj = new Image();
+    imageObj.onload = function(){
+        canvas.drawImage(imageObj, 0, 0);
+        canvas.fillText(weatherTitle.SNOW, 55, 20);
+        if(clear_data.length != 0){
+            canvas.fillText(clear_data[0].description, 60, 60);
+            canvas.fillText(clear_data[0].timeUntil, 60, 100);
+            canvas.fillText(clear_data[0].temp, 60, 140);
+        } else {
+            canvas.fillText(notForecastMessage.SNOW, 60, 60);
+        }
+    };
+    imageObj.src = 'images/blue-sky.jpg';
 }
 function welcomeScreen(c) {
     c.clearRect(0, 0, 200, 200);
