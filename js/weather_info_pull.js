@@ -1,3 +1,4 @@
+
 function locationRequest() {
     "use strict"
     navigator.geolocation.getCurrentPosition(success, error);

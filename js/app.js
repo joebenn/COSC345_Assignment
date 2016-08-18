@@ -1,9 +1,13 @@
+
+
 locationRequest();
 
 var clearWeather;
 var rainWeather;
 var cloudWeather;
 var snowWeather;
+
+
 
 
 function parseWeather(weatherJSONObject) {
