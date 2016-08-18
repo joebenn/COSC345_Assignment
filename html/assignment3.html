@@ -6,27 +6,27 @@
     <title>COSC343 - SMARTWATCH</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
-    
+
     <body>
-    
+
         <h1>COSC345 Assignment - Smartwatch App 2016</h1>
-        
-        <h2>Assisngment 2</h2>
-        
+
+        <h2>Assisngment 3</h2>
+
         <ul>
             <li><a href="#emulator">The Emulator</a></li>
             <li><a href="#application">The Application</a></li>
             <li><a href="#tools">Tools We Used</a></li>
             <li><a href="#browsers">Browsers</a></li>
-            
-            
+
+
         </ul>
-    
+
         <div id="emulator">
             <h2>The Emulator</h2>
             <p>
                 Our emulator is found within the ‘emulator.js’ file. The basic idea of our emulator is to have a HTML document that holds a canvas element. The canvas element is then used to hold any screens that may need to be held in it. Our application required multiple screens so we attached buttons to the left and right side of our emulator to simulate a swiping motion to move from page to page.
-                
+
             </p>
             <p>
                 Our emulator’s JavaScript file is structured so it's easy to understand for other users to read. Currently the window size is set to a height and width of 200 at the top of the file which can be manipulated if necessary to fit different sized applications.  After editing the height and width variables, the variables are then used to set the canvas pixels. After the pixels have been set, the canvas is then appended onto the document body. We have function after this which is the set_current function. The set_current function is used to fill the the canvas with the particular object at interest which in our case is our screen of interest in our application. The next function of interest is the set_screens function, this function is used set the array of screens for switching between pages on our application. The last two functions onClickLeft and onClickRight are used to navigate left to right between the screens.
@@ -34,78 +34,78 @@
 
             </p>
         </div>
-        
+
         <div id="application">
             <h2>The Application</h2>
             <p>
                 The idea of our application is one of weather forecasting. Our application has multiple pages, with each one representing a certain weather type, for example, ‘raining’ or ‘cloudy’. For weather type, our application forecasts to see whether that particular weather pattern is to be expected within the next 5 days, in 3 hour time slots. An example of this is if we were expected to get rain in two days, the ‘raining’ weather page would return details of the date in two days, what 3 hour time slot the rain is first expected time slot the rain is expected to be in and a small description on the the time of rain that is to be expected. The particular this application that this may appeal to would be people that want to quickly know what kind of particular weather conditions may be expected in the next 5 days. Instead of looking up the forecast for rainy weather our application makes it faster just to look up when the next rain is expected.
-                
+
             </p>
             <p>
-                To use our application it is very basic. The application sits in our emulator. The emulator has one button on either side of the web page. The two buttons are there to simulate swiping between pages on our application. When you first open the application, you should first come across our homepage. From the homepage the only way you can ‘swipe’ is right. With swiping right you’ll come across the first weather page, from there you can keep swiping right to keep moving to the other weather types and also swipe left to navigate back to previous types. Each page should display the next time that weather is expected to occur or a message indicating it won’t be occurring. 
+                To use our application it is very basic. The application sits in our emulator. The emulator has one button on either side of the web page. The two buttons are there to simulate swiping between pages on our application. When you first open the application, you should first come across our homepage. From the homepage the only way you can ‘swipe’ is right. With swiping right you’ll come across the first weather page, from there you can keep swiping right to keep moving to the other weather types and also swipe left to navigate back to previous types. Each page should display the next time that weather is expected to occur or a message indicating it won’t be occurring.
 
             </p>
         </div>
-        
+
         <div id="tools">
             <h2>Tools We Used</h2>
             <ul>
-                <li>Atom: Atom was the IDE that we used throughout the project. We found that Atom was a particularly useful but also simple to use for all of us in the group. It is a useful for users as it comes with a command palette, developer tools and integrated package manager that we as a group were able to take advantage of. 
+                <li>Atom: Atom was the IDE that we used throughout the project. We found that Atom was a particularly useful but also simple to use for all of us in the group. It is a useful for users as it comes with a command palette, developer tools and integrated package manager that we as a group were able to take advantage of.
                 </li>
-                
-                <li>W3schools: W3schools was a major source for information that we needed in completing our application. It was a useful for looking up both HTML and JavaScript techniques and data structures. 
+
+                <li>W3schools: W3schools was a major source for information that we needed in completing our application. It was a useful for looking up both HTML and JavaScript techniques and data structures.
                 </li>
-                
+
                 <li>W3C markup validation service: We used the W3C markup validator for validating our HTML. The service checks the markup validity of web documents and all of its content. We used this to check the grammar, vocabulary and syntax of our documents. Using this meant that our documents would be all considered ‘valid’ to the W3C standard.
                 </li>
-                
+
                 <li>JSLint: JSLint is what we used for our JavaScript validation. JSLint is a tool that is used to test the code quality. This is similar to what the W3C validator does for HTML documents, it takes the JavaScript file and scans it and then if it finds a problem it will return it for the user to see with the location and the description of the problem. We used JSLint to keep our javascript code as clean a we could.
                 </li>
-                
+
                 <li>Git: We all used git in our group as a tool for pushing and pulling our code to our version control system. Git is free software that we are able to use in our unix terminal. This made it easier for all of us to see who was pushing and pulling new code, this also meant we could all have our own branches meaning that the master copy would not be affected without approval by the owner of our repository. When we were first starting to use git we were all finding it difficult to use, but after a little research and after learning the fundamentals we found it to be one of our most resourceful tools for our group.
                 </li>
-                
+
                 <li>Github: Github was the web-based git repository that we chose to use from the beginning. The advantage of using GitHub with git meant that we had a web-based graphical interface to use so we could see code online and all changes that have been made after every push. Our group at the start found using Github was slightly difficult but after using for most of the year now have found it very useful and way more effective compared to for example emailing code to each other.
                 </li>
-                
+
                 <li>OpenWeatherMap API: For getting the weather for our application we decided to go with the OpenWeatherMap API. We chose this because it was a free API which gave us the kind of data we wanted to finish our application. The API was available in both XML and JSON, we chose to go with JSON as it was easy to translate with javaScript and we also felt more comfortable with it overall. The particular API we chose was a 5 day / 3 hour forecast which for our purpose better as we could get the particular hours in the day. The API just got passed the geolocation from our code with would then return the weather for that particular location. We wanted to use a 16 day forecast for our API which was a tool that was unavailable us as it required a paid subscription to the OpenWeatherMap API.
 
                 </li>
-                
+
                 <li>FireFox developer tools: Our main source of debugging and development techniques was the firefox developer tool. The developer tools are perfect for debugging as we could could log all of our variables and our outputs to the firefox console. Another feature of the console is it can also tell you where problems may be occurring in the JavaScript file. We also chose firefox as it allowed us to develop in the local environment rather than having to use an server.
 
                 </li>
             </ul>
-        
+
         </div>
-        
+
         <div id="browsers">
             <h2>Tested Browsers</h2>
-            
+
         </div>
-        
+
         <div id="group">
             <h2>Group Social Dynamics</h2>
             <p>Overall our group I believed worked brilliantly together to fulfill the task we had at hand. Over the year we had grown closer together which as helped to make things such as meet ups and decisions a whole lot easier. Even with being closer we still had a lot of issues and a group and more than a few issues to overcome when trying to complete our application.
-                
+
             </p>
             <p>One of the first major issues that we as a group had to overcome was when Bayley had a accident an accident at home which left him in hospital for a few days. The injury he had acquired was a cut tendon in his right hand which meant that he was going to find it harder to type with one hand. This left the group with one member down for a week and then afterwards also meant that typing would be slower. The group worked around this and Bayley was used as a pair programmer and also helped with researching solutions for the application. After this was overcome we found progress was steady enough and we managed to complete more work. The only other problem would have been finding times for everyone to meet up around assessment times.
-                
+
             </p>
             <p>In our group we had no particular roles, we decided to work together on the most part. Coming closer to the end though, we decided to split our roles a little, with Joe working mainly on improving the code and features in the JavaScript, Reuben would clean and validate the code after each push making it much easier to debug our code, Blake with designing and Bayley in charge of writing the report. Overall though these roles were not set as each member ended up helping in each of those parts.
-                
+
             </p>
             <p>Also in our group we all worked well together, we all knew what was expected of each other of each other. All of us in the end ended up learning the JavaScript language which meant everybody was able to take part in the programming of the project. We all also started to learn the tools that our project was using which meant when problems arose we were all able to put our mind together to solve the problem.
-                
+
             </p>
-            <p>In the end our group managed to work together to overcome a potentially problematic situation and was able to move forward and adapt to the situation at hand, thus leading us to the goal of finishing our smartwatch application. 
+            <p>In the end our group managed to work together to overcome a potentially problematic situation and was able to move forward and adapt to the situation at hand, thus leading us to the goal of finishing our smartwatch application.
             </p>
         </div>
-    
-    
-    
-    
+
+
+
+
     </body>
-    
-    
+
+
 </html>
