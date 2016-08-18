@@ -67,8 +67,8 @@ function fillTextCenterHorizontal(canvas, text, yCoord){
 function drawWeatherScreen(canvas, backgroundImg, iconImg, weatherObj, title){
     canvas.clearRect(0, 0, WATCH_WIDTH, WATCH_HEIGHT);
     canvas.drawImage(backgroundImg, 0, 0);
-    fillTextCenterHorizontal(canvas, title, 30);
-    canvas.drawImage(iconImg, 120, 120);
+    fillTextCenterHorizontal(canvas, title, 40);
+    canvas.drawImage(iconImg, 135, 135);
     if (weatherObj) {
         fillTextCenterHorizontal(canvas, weatherObj.description, 100);
         fillTextCenterHorizontal(canvas, weatherObj.timeUntil, 120);
