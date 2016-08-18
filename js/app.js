@@ -4,7 +4,28 @@ var clearWeather;
 var rainWeather;
 var cloudWeather;
 var snowWeather;
-var loading = true;
+
+var backgroundImages = [];
+
+function loadBackgrounds(){
+    var welcome = new Image();
+    var clear = new Image();
+    var rain = new Image();
+    var cloud = new Image();
+    var snow = new Image();
+
+    welcome.src = imagePath.WELCOME_BACKGROUND_IMAGE;
+    clear.src = imagePath.CLEAR_SKY_BACKGROUND_IMAGE;
+    rain.src = imagePath.RAIN_SKY_BACKGROUND_IMAGE;
+    cloud.src = imagePath.CLOUD_SKY_BACKGROUND_IMAGE;
+    snow.src = imagePath.SNOW_SKY_BACKGROUND_IMAGE;
+
+    backgroundImages.push(welcome);
+    backgroundImages.push(clear);
+    backgroundImages.push(rain);
+    backgroundImages.push(cloud);
+    backgroundImages.push(snow);
+}
 
 function parseWeather(weatherJSONObject) {
     "use strict";
@@ -23,13 +44,14 @@ function parseWeather(weatherJSONObject) {
     } else if (!snowWeather && weatherJSONObject.main === weatherType.SNOW) {
         snowWeather = weatherObject;
     }
-    loading = false;
+}
+
+function loadScreens() {
     set_screens([
-        {left: 3, right: 1, bg: colour.WHITE, fg: colour.WHITE, draw: welcomeScreen},
-        {left: 0, right: 2, bg: colour.WHITE, fg: colour.WHITE, draw: clearWeatherScreen},
-        {left: 1, right: 3, bg: colour.WHITE, fg: colour.WHITE, draw: rainyWeatherScreen},
-        {left: 2, right: 4, bg: colour.WHITE, fg: colour.WHITE, draw: cloudyWeatherScreen},
-        {left: 3, right: 0, bg: colour.WHITE, fg: colour.WHITE, draw: snowyWeatherScreen}
+        {left: 2, right: 1, bg: colour.WHITE, fg: colour.WHITE, draw: clearWeatherScreen},
+        {left: 0, right: 2, bg: colour.WHITE, fg: colour.WHITE, draw: rainyWeatherScreen},
+        {left: 1, right: 3, bg: colour.WHITE, fg: colour.WHITE, draw: cloudyWeatherScreen},
+        {left: 2, right: 0, bg: colour.WHITE, fg: colour.WHITE, draw: snowyWeatherScreen}
     ]);
 }
 
@@ -64,9 +86,12 @@ function fillTextCenterHorizontal(canvas, text, yCoord){
         yCoord);
 }
 
-function drawWeatherScreen(canvas, backgroundImg, iconImg, weatherObj, title){
+function drawBackground(canvas, img){
     canvas.clearRect(0, 0, WATCH_WIDTH, WATCH_HEIGHT);
-    canvas.drawImage(backgroundImg, 0, 0);
+    canvas.drawImage(img, 0, 0);
+}
+
+function drawForeground(canvas, iconImg, weatherObj, title){
     fillTextCenterHorizontal(canvas, title, 40);
     canvas.drawImage(iconImg, 135, 135);
     if (weatherObj) {
@@ -80,177 +105,74 @@ function drawWeatherScreen(canvas, backgroundImg, iconImg, weatherObj, title){
 
 function clearWeatherScreen(canvas) {
     "use strict";
-    var backgroundImg = new Image();
     var iconImg = new Image();
-    var iconLoaded = false;
-    var backgroundLoaded = false;
     iconImg.src = iconImagePath.CLEAR_ICON_IMAGE;
-    backgroundImg.src = imagePath.CLEAR_SKY_BACKGROUND_IMAGE;
-
-    backgroundImg.onload = function () {
-        if (iconLoaded){
-            drawWeatherScreen(canvas,
-                backgroundImg,
-                iconImg,
-                clearWeather,
-                weatherTitle.CLEAR
-            );
-        }
-        backgroundLoaded = true;
-    };
-
+    drawBackground(canvas, backgroundImages[1]);
     iconImg.onload = function () {
-        if (backgroundLoaded){
-            drawWeatherScreen(canvas,
-                backgroundImg,
+            drawForeground(canvas,
                 iconImg,
                 clearWeather,
                 weatherTitle.CLEAR
             );
-        }
-        iconLoaded = true;
     };
 }
 
 function rainyWeatherScreen(canvas) {
-    var backgroundImg = new Image();
+    "use strict";
     var iconImg = new Image();
-    var iconLoaded = false;
-    var backgroundLoaded = false;
     iconImg.src = iconImagePath.RAIN_ICON_IMAGE;
-    backgroundImg.src = imagePath.RAIN_SKY_BACKGROUND_IMAGE;
-
-    backgroundImg.onload = function () {
-        if (iconLoaded){
-            drawWeatherScreen(canvas,
-                backgroundImg,
-                iconImg,
-                rainWeather,
-                weatherTitle.RAIN
-            );
-        }
-        backgroundLoaded = true;
-    };
-
+    drawBackground(canvas, backgroundImages[2]);
     iconImg.onload = function () {
-        if (backgroundLoaded){
-            drawWeatherScreen(canvas,
-                backgroundImg,
-                iconImg,
-                rainWeather,
-                weatherTitle.RAIN
-            );
-        }
-        iconLoaded = true;
+        drawForeground(canvas,
+            iconImg,
+            rainWeather,
+            weatherTitle.RAIN
+        );
     };
 }
 
 function cloudyWeatherScreen(canvas) {
     "use strict";
-    var backgroundImg = new Image();
     var iconImg = new Image();
-    var iconLoaded = false;
-    var backgroundLoaded = false;
     iconImg.src = iconImagePath.CLOUD_ICON_IMAGE;
-    backgroundImg.src = imagePath.CLOUD_SKY_BACKGROUND_IMAGE;
-
-    backgroundImg.onload = function () {
-        if (iconLoaded){
-            drawWeatherScreen(canvas,
-                backgroundImg,
-                iconImg,
-                cloudWeather,
-                weatherTitle.CLOUD
-            );
-        }
-        backgroundLoaded = true;
-    };
-
+    drawBackground(canvas, backgroundImages[3]);
     iconImg.onload = function () {
-        if (backgroundLoaded){
-            drawWeatherScreen(canvas,
-                backgroundImg,
-                iconImg,
-                cloudWeather,
-                weatherTitle.CLOUD
-            );
-        }
-        iconLoaded = true;
+        drawForeground(canvas,
+            iconImg,
+            cloudWeather,
+            weatherTitle.CLOUD
+        );
     };
 }
 
 function snowyWeatherScreen(canvas) {
     "use strict";
-    var backgroundImg = new Image();
     var iconImg = new Image();
-    var iconLoaded = false;
-    var backgroundLoaded = false;
     iconImg.src = iconImagePath.SNOW_ICON_IMAGE;
-    backgroundImg.src = imagePath.SNOW_SKY_BACKGROUND_IMAGE;
-
-    backgroundImg.onload = function () {
-        if (iconLoaded){
-            drawWeatherScreen(canvas,
-                backgroundImg,
-                iconImg,
-                snowWeather,
-                weatherTitle.SNOW
-            );
-        }
-        backgroundLoaded = true;
-    };
-
+    drawBackground(canvas, backgroundImages[4]);
     iconImg.onload = function () {
-        if (backgroundLoaded){
-            drawWeatherScreen(canvas,
-                backgroundImg,
-                iconImg,
-                snowWeather,
-                weatherTitle.SNOW
-            );
-        }
-        iconLoaded = true;
+        drawForeground(canvas,
+            iconImg,
+            snowWeather,
+            weatherTitle.SNOW
+        );
     };
 }
 
 function welcomeScreen(canvas) {
     "use strict";
-    var backgroundImg = new Image();
     var iconImg = new Image();
-    var iconLoaded = false;
-    var backgroundLoaded = false;
-
-    canvas.clearRect(0, 0, WATCH_WIDTH, WATCH_HEIGHT);
-
-    backgroundImg.onload = function () {
-        if (iconLoaded){
-            drawScreen();
-        }
-        backgroundLoaded = true;
-    };
-
+    drawBackground(canvas, backgroundImages[0]);
     iconImg.onload = function () {
-        if (backgroundLoaded){
-            drawScreen();
-        }
-        iconLoaded = true;
+        fillTextCenterHorizontal(canvas, WEATHER_TITLE, 80);
+        fillTextCenterHorizontal(canvas, FORECAST_TITLE, 100);
+        canvas.drawImage(iconImg, 5, 150);
     };
 
-    function drawScreen() {
-        canvas.drawImage(backgroundImg, 0, 0);
-        fillTextCenterHorizontal(canvas,WEATHER_TITLE, 80);
-        fillTextCenterHorizontal(canvas,FORECAST_TITLE, 100);
-        if (loading){
-            fillTextCenterHorizontal(canvas,
-                LOADING_TITLE + " " + FORECAST_TITLE, 140);
-        }
-        canvas.drawImage(iconImg, 5, 150);
-    }
-
-    backgroundImg.src = imagePath.WELCOME_BACKGROUND_IMAGE;
     iconImg.src = iconImagePath.WELCOME_ICON_IMAGE;
 }
 
+loadBackgrounds();
 set_screens([
-    {left: 3, right: 1, bg: colour.WHITE, fg: colour.WHITE, draw: welcomeScreen}
+    {left: 0, right: 0, bg: colour.WHITE, fg: colour.WHITE, draw: welcomeScreen}
     ]);

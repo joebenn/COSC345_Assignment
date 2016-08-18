@@ -30,5 +30,7 @@ function getWeather(latitude, longitude) {
 
           parseWeather(weatherObj);
       });
+
+      loadScreens();
   });
 }
