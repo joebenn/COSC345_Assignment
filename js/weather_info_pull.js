@@ -1,17 +1,21 @@
 function locationRequest() {
+    "use strict"
     navigator.geolocation.getCurrentPosition(success, error);
 }
 
 function success(pos) {
+    "use strict"
     var crd = pos.coords;
     getWeather(crd.latitude,crd.longitude);
 }
 
 function error(err) {
-    console.warn('ERROR(' + err.code + '): ' + err.message);
+    "use strict"
+    console.warn("ERROR(" + err.code + "): " + err.message);
 }
 
 function getWeather(latitude, longitude) {
+    "use strict"
   jQuery.getJSON(String.format(API_URL, latitude, longitude, API_KEY), function (jsonObj) {
       var city = jsonObj.city;
       jsonObj.list.forEach(function (weatherPeriod) {

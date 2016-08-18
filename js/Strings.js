@@ -67,3 +67,4 @@ if (!String.format) {
         });
     };
 }
+

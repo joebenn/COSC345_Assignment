@@ -5,7 +5,9 @@ var rainWeather;
 var cloudWeather;
 var snowWeather;
 
+
 function parseWeather(weatherJSONObject) {
+    "use strict"
     var weatherObject = ({
         description: weatherJSONObject.description,
         timeUntil: calcTimeDifference(weatherJSONObject.date_time),
@@ -24,6 +26,7 @@ function parseWeather(weatherJSONObject) {
 }
 
 function calcTimeDifference(inputTime) {
+    "use strict"
     var today = new Date();
     var minutesIn24Hours = 86400000;
     var utcToday = Date.UTC(
@@ -43,6 +46,7 @@ function calcTimeDifference(inputTime) {
 }
 
 function clearWeatherScreen(canvas) {
+    "use strict"
     canvas.clearRect(0, 0, 200, 200);
     var imageObj = new Image();
     imageObj.onload = function () {
@@ -83,6 +87,7 @@ function rainyWeatherScreen(canvas) {
 }
 
 function cloudyWeatherScreen(canvas) {
+    "use strict"
     canvas.clearRect(0, 0, 200, 200);
     var imageObj = new Image();
     imageObj.onload = function () {
@@ -103,6 +108,7 @@ function cloudyWeatherScreen(canvas) {
 }
 
 function snowyWeatherScreen(canvas) {
+    "use strict"
     canvas.clearRect(0, 0, 200, 200);
     var imageObj = new Image();
     imageObj.onload = function () {
@@ -123,6 +129,7 @@ function snowyWeatherScreen(canvas) {
 }
 
 function welcomeScreen(canvas) {
+    "use strict"
     canvas.clearRect(0, 0, 200, 200);
     var imageObj = new Image();
     imageObj.onload = function () {
@@ -144,3 +151,4 @@ set_screens([
     {left: 2, right: 4, bg: colour.WHITE, fg: colour.WHITE, draw: cloudyWeatherScreen},
     {left: 3, right: 0, bg: colour.WHITE, fg: colour.WHITE, draw: snowyWeatherScreen}
 ]);
+
