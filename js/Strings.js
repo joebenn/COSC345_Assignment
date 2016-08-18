@@ -1,6 +1,7 @@
 var IMAGEFOLDER = "../images";
-var TITLE = "WEATHER";
-var TITLE2 = "FORCASTING";
+var WEATHER_TITLE = "WEATHER";
+var FORECAST_TITLE = "FORECAST";
+var LOADING_TITLE = "LOADING";
 var API_KEY = "8056edf51377902d28bd9e53a5dd97af";
 var API_URL = "http://api.openweathermap.org/data/2.5/forecast?lat={0}&lon={1}&units=metric" +
     "&APPID={2}";
@@ -13,18 +14,13 @@ var weatherType = {
 };
 
 var weatherTitle = {
-    CLEAR  : "Clear Weather",
-    RAIN : "Rain Weather",
-    CLOUD  : "Clouds Weather",
-    SNOW : "Snow Weather"
+    CLEAR  : "CLEAR",
+    RAIN : "RAIN",
+    CLOUD  : "CLOUD",
+    SNOW : "SNOW"
 };
 
-var notForecastMessage = {
-    CLEAR  : "No clear weather forecast",
-    RAIN : "No rain forecast",
-    CLOUD  : "No cloud forecast",
-    SNOW : "No snow forecast"
-};
+var notForecastMessage = "Not forecast";
 
 var colour = {
     WHITE : "white",
@@ -37,9 +33,7 @@ var time = {
 };
 
 var labels = {
-    WHAT : "What: ",
-    WHEN : "When: ",
-    CELCIUS : "C˚: "
+    CELSIUS : "C˚"
 };
 
 var imagePath = {

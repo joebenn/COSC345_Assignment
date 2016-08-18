@@ -1,15 +1,11 @@
-var width = 200;
-var height = 200;
-
-var canvas_width_pixels = width;
-var canvas_height_pixels = height;
+var WATCH_WIDTH = 200;
+var WATCH_HEIGHT = 200;
 
 var canvas = document.createElement("canvas");
 var canvas_create = canvas.getContext("2d");
 
-
-canvas.width = canvas_width_pixels;
-canvas.height = canvas_height_pixels;
+canvas.width = WATCH_WIDTH;
+canvas.height = WATCH_HEIGHT;
 
 document.body.appendChild(canvas);
 
@@ -22,7 +18,6 @@ function set_current(screen_object) {
   canvas_create.fillStyle = current.fg;
   canvas_create.font = "15px sans-serif";
   canvas_create.fillText(current.title, 55, 20);
-  //images?
   current.draw(canvas_create);
 }
 

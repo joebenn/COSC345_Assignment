@@ -1,48 +1,50 @@
 body {
-	background-color: white;
-	font-family: sans-serif;
+    background-color: white;
+    font-family: sans-serif;
 }
 
 h1 {
-	text-align: center;
-	color: black;
+    text-align: center;
+    color: black;
 }
 
 canvas {
-	width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-	border: 10px solid;
-	border-color: #262626;
-	border-radius: 15px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 10px solid;
+    border-color: #262626;
+    border-radius: 15px;
 }
 
 #buttons {
-	width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-	padding-top: 10px;
-	padding-left: 95px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-left: 95px;
 }
 
-.swipeButton{
-		background-color: #555555;
+.swipeButton {
+    background-color: #555555;
     border: none;
-		border-radius: 2px;
+    border-radius: 2px;
     color: white;
     padding: 5px 7px;
     text-align: center;
     font-size: 16px;
 }
+
 #reports {
-	padding-top: 30px;
+    padding-top: 30px;
 }
+
 #reports h2 {
-	padding-left: 20px;
+    padding-left: 20px;
 }
 
 #reports a {
-	color:  #555555;
+    color: #555555;
 }
