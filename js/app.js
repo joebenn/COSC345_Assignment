@@ -5,26 +5,24 @@ var rainWeather;
 var cloudWeather;
 var snowWeather;
 
-var backgroundImages = [];
+var backgroundWeatherImages = [];
+var welcomeBackgroundImage;
 
-function loadBackgrounds(){
-    var welcome = new Image();
+function loadWeatherBackgrounds(){
     var clear = new Image();
     var rain = new Image();
     var cloud = new Image();
     var snow = new Image();
 
-    welcome.src = imagePath.WELCOME_BACKGROUND_IMAGE;
     clear.src = imagePath.CLEAR_SKY_BACKGROUND_IMAGE;
     rain.src = imagePath.RAIN_SKY_BACKGROUND_IMAGE;
     cloud.src = imagePath.CLOUD_SKY_BACKGROUND_IMAGE;
     snow.src = imagePath.SNOW_SKY_BACKGROUND_IMAGE;
 
-    backgroundImages.push(welcome);
-    backgroundImages.push(clear);
-    backgroundImages.push(rain);
-    backgroundImages.push(cloud);
-    backgroundImages.push(snow);
+    backgroundWeatherImages.push(clear);
+    backgroundWeatherImages.push(rain);
+    backgroundWeatherImages.push(cloud);
+    backgroundWeatherImages.push(snow);
 }
 
 function parseWeather(weatherJSONObject) {
@@ -53,6 +51,21 @@ function loadScreens() {
         {left: 1, right: 3, bg: colour.WHITE, fg: colour.WHITE, draw: cloudyWeatherScreen},
         {left: 2, right: 0, bg: colour.WHITE, fg: colour.WHITE, draw: snowyWeatherScreen}
     ]);
+}
+
+function loadWelcomeScreen() {
+    var welcome = new Image();
+
+    welcome.onload = function () {
+        if (!screens){
+            welcomeBackgroundImage = welcome;
+            set_screens([
+                {left: 0, right: 0, bg: colour.WHITE, fg: colour.WHITE, draw: welcomeScreen}
+            ]);
+        }
+    };
+
+    welcome.src = imagePath.WELCOME_BACKGROUND_IMAGE;
 }
 
 function calcTimeDifference(inputTime) {
@@ -107,7 +120,7 @@ function clearWeatherScreen(canvas) {
     "use strict";
     var iconImg = new Image();
     iconImg.src = iconImagePath.CLEAR_ICON_IMAGE;
-    drawBackground(canvas, backgroundImages[1]);
+    drawBackground(canvas, backgroundWeatherImages[1]);
     iconImg.onload = function () {
             drawForeground(canvas,
                 iconImg,
@@ -121,7 +134,7 @@ function rainyWeatherScreen(canvas) {
     "use strict";
     var iconImg = new Image();
     iconImg.src = iconImagePath.RAIN_ICON_IMAGE;
-    drawBackground(canvas, backgroundImages[2]);
+    drawBackground(canvas, backgroundWeatherImages[2]);
     iconImg.onload = function () {
         drawForeground(canvas,
             iconImg,
@@ -135,7 +148,7 @@ function cloudyWeatherScreen(canvas) {
     "use strict";
     var iconImg = new Image();
     iconImg.src = iconImagePath.CLOUD_ICON_IMAGE;
-    drawBackground(canvas, backgroundImages[3]);
+    drawBackground(canvas, backgroundWeatherImages[3]);
     iconImg.onload = function () {
         drawForeground(canvas,
             iconImg,
@@ -149,7 +162,7 @@ function snowyWeatherScreen(canvas) {
     "use strict";
     var iconImg = new Image();
     iconImg.src = iconImagePath.SNOW_ICON_IMAGE;
-    drawBackground(canvas, backgroundImages[4]);
+    drawBackground(canvas, backgroundWeatherImages[4]);
     iconImg.onload = function () {
         drawForeground(canvas,
             iconImg,
@@ -162,7 +175,7 @@ function snowyWeatherScreen(canvas) {
 function welcomeScreen(canvas) {
     "use strict";
     var iconImg = new Image();
-    drawBackground(canvas, backgroundImages[0]);
+    drawBackground(canvas, welcomeBackgroundImage);
     iconImg.onload = function () {
         fillTextCenterHorizontal(canvas, WEATHER_TITLE, 80);
         fillTextCenterHorizontal(canvas, FORECAST_TITLE, 100);
@@ -171,7 +184,5 @@ function welcomeScreen(canvas) {
     iconImg.src = iconImagePath.WELCOME_ICON_IMAGE;
 }
 
-loadBackgrounds();
-set_screens([
-    {left: 0, right: 0, bg: colour.WHITE, fg: colour.WHITE, draw: welcomeScreen}
-    ]);
+loadWelcomeScreen();
+loadWeatherBackgrounds();
