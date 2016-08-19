@@ -41,13 +41,14 @@ QUnit.test("Testing the API Pulls the correct city", function(assert){
         assert.equal("Christchurch", cityName, "city is equal to 'Christchurch'");
         done();
     });
+  });
 
 QUnit.test("make sure the canvas is not empty", function(assert){
     assert.notEqual(canvas, "", "Canvas is not empty")
 });
 
 QUnit.test("Make sure images are pushed onto array", function(assert){
-    assert.equal(backgroundWeatherImages.length, 5, "Images are correctly pushed");
+    assert.equal(backgroundWeatherImages.length, 4, "Images are correctly pushed");
 });
 
 QUnit.test("testing calcDifferece function", function(assert){
