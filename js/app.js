@@ -168,7 +168,6 @@ function welcomeScreen(canvas) {
         fillTextCenterHorizontal(canvas, FORECAST_TITLE, 100);
         canvas.drawImage(iconImg, 5, 150);
     };
-
     iconImg.src = iconImagePath.WELCOME_ICON_IMAGE;
 }
 

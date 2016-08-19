@@ -35,14 +35,11 @@ QUnit.test("Testing the city", function(assert){
     var latitude = -43.532054;
     var longitude = 172.636225;
     var cityName;
-    
     var done = assert.async();
-    
     jQuery.getJSON(String.format(API_URL, latitude, longitude, API_KEY), function (jsonObj) {
         var cityName = jsonObj.city.name;
         assert.equal("Christchurch", cityName, "city is equal to 'Christchurch'");
         done();
     });
-     
-});
 
+});
