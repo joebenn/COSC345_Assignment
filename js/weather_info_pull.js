@@ -34,3 +34,4 @@ function getWeather(latitude, longitude) {
       loadScreens();
   });
 }
+
