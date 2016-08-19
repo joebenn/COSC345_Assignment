@@ -29,13 +29,20 @@ QUnit.test("making sure that the strings aren't empty", function(assert){
    assert.notEqual(API_URL,"", "string is not equal to empty");
 });
 
-var cityTest = QUnit.test("Testing the city", function(assert){
+
+QUnit.test("Testing the city", function(assert){
+    assert.expect(1);
     var latitude = -43.532054;
     var longitude = 172.636225;
     var cityName;
+    
+    var done = assert.async();
+    
     jQuery.getJSON(String.format(API_URL, latitude, longitude, API_KEY), function (jsonObj) {
-        cityName = jsonObj.city.name;
+        var cityName = jsonObj.city.name;
+        assert.equal("Christchurch", cityName, "city is equal to 'Christchurch'");
+        done();
     });
-    assert.equal("Christchurch", cityName, "city is equal to 'Christchurch'");
-
+     
 });
+
