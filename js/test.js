@@ -47,7 +47,7 @@ QUnit.test("make sure the canvas is not empty", function(assert){
 });
 
 QUnit.test("Make sure images are pushed onto array", function(assert){
-    assert.equal(backgroundImages.length, 5, "Images are correctly pushed");
+    assert.equal(backgroundWeatherImages.length, 5, "Images are correctly pushed");
 });
 
 QUnit.test("testing calcDifferece function", function(assert){
