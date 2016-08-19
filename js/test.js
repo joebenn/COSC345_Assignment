@@ -30,7 +30,7 @@ QUnit.test("making sure that the strings aren't empty", function(assert){
 });
 
 
-QUnit.test("Testing the city", function(assert){
+QUnit.test("Testing the API Pulls the correct city", function(assert){
     assert.expect(1);
     var latitude = -43.532054;
     var longitude = 172.636225;
@@ -46,3 +46,14 @@ QUnit.test("Testing the city", function(assert){
      
 });
 
+QUnit.test("make sure the canvas is not empty", function(assert){
+    assert.notEqual(canvas, "", "Canvas is not empty")
+})
+
+QUnit.test("Make sure images are pushed onto array", function(assert){
+    assert.equal(backgroundImages.length, 5, "Images are correctly pushed");
+})
+
+QUnit.test("testing calcDifferece function", function(assert){
+    assert.equal(calcTimeDifference(new Date()), "0 Hours", "calcTimeDifference function works correctly");
+})
